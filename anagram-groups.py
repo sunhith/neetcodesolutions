@@ -1,7 +1,11 @@
-for string in strs:
+class Solution:
+
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        dic = dict()
+        for string in strs:
+            sorted_str = "".join(sorted(string))
             if sorted_str not in dic:
                 dic[sorted_str] = [string]
-            sorted_str = "".join(sorted(string))
             else:
                 lis = dic[sorted_str]
                 lis.append(string)
@@ -10,6 +14,3 @@ for string in strs:
         for d in dic:
             lis.append(dic[d])
         return lis
-    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        dic = dict()
-class Solution:
