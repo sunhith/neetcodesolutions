@@ -1,9 +1,10 @@
-                res[i] = rev_prod[1]
-            elif i == len(nums)-1:
-                res[i] = prod[i-1]
+                prod[i] = prod[i-1] * nums[i]
+        
+        for i in range(len(nums)-1,-1, -1):
+            if i == len(nums)-1:
+                rev_prod[i] = nums[i]
             else:
-                res[i] = prod[i-1]*rev_prod[i+1]
+                rev_prod[i] = rev_prod[i+1]*nums[i]
         
-        return res
-
-        
+        for i in range(len(nums)):
+            if i == 0:
