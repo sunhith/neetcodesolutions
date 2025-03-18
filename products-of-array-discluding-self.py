@@ -1,18 +1,5 @@
-class Solution:
-
-    def productExceptSelf(self, nums: List[int]) -> List[int]:
-        n = len(nums)
-        prod = [0] * n  # Initialize with correct size
-        rev_prod = [0] * n  # Initialize with correct size
-        res = [0] * n  # Initialize with correct size
-        for i in range(len(nums)):
-            if i == 0:
-                prod[i] = nums[i]
+res[i] = prod[i-1]
             else:
-                prod[i] = prod[i-1] * nums[i]
+                res[i] = prod[i-1]*rev_prod[i+1]
 
-        for i in range(len(nums)-1,-1, -1):
-            if i == len(nums)-1:
-                rev_prod[i] = nums[i]
-            else:
-                rev_prod[i] = rev_prod[i+1]*nums[i]
+        return res
