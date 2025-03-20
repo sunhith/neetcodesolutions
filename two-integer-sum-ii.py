@@ -7,13 +7,13 @@ class Solution:
             j+=1
             sum = numbers[i]+numbers[j]
         if sum == target:
-            return [numbers[i],numbers[j]]
+            return [i+1,j+1]
         while sum == target:
             if numbers[i]+numbers[j] > target:
                 j-=1
             else:
                 i+=1
             sum = numbers[i]+numbers[j]
-        return [numbers[i],numbers[j]]
+        return [i+1,j+1]
 
         
