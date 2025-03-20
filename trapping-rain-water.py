@@ -3,11 +3,11 @@ class Solution:
         n = len(height)
         left_max = [0]*(n)
         right_max = [0]*(n)
-        
+        # At certain point it can store water of min(max_left of the point, max_right of the point)
         for i in range(n):
             if i == 0:
                 left_max[i] = height[i]
-                right_max[i] = height[n-1-i]
+                right_max[n-1-i] = height[n-1-i]
             else:
                 left_max[i] = max(left_max[i-1], height[i] )
                 right_max[n-1-i] = max(right_max[n-i], height[n-1-i] )
