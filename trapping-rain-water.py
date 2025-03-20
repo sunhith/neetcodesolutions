@@ -13,8 +13,7 @@ class Solution:
                 right_max[n-1-i] = max(right_max[n-i], height[n-1-i] )
         storage = 0
         for i in range(1,n-1,1):
-            min_val = min(left_max[i-1], right_max[i+1]) - height[i]
-            if min_val > 0:
-                storage+=min_val
+            min_val = min(left_max[i], right_max[i]) - height[i]
+            storage+=min_val
         return storage
 
