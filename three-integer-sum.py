@@ -20,7 +20,7 @@ class Solution:
                 j+=1
             else:
                 res.append([a,nums[j],nums[k]])
-                i+=1
                 j+=1
+                k-=1
        return res
 
