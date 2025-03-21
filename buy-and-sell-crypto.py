@@ -13,11 +13,12 @@ class Solution:
             res = max(res, maxarr[i+1]-prices[i])
         return res
         """
-        # Solution - 2 -> TC= O(n), SC= O(n) -> Maintain 2 pointers 1 points to buy price(b) and other to sell price(s)
+        # Solution - 2 -> TC= O(n), SC= O(1) -> Maintain 2 pointers 1 points to buy price(b) and other to sell price(s)
         # so check for if there are any low sell prices(s) for a given b. In the process if you find any s less than b 
         # move b pointer to s as you found less buy price than b so in future you might get higher sell price then this 
         # buy price would be appropriate.
         # Two pointer Approach - Window Technique
+        """
         n = len(prices)
         b,s = 0,1
         res = 0
@@ -28,6 +29,17 @@ class Solution:
                 b = s
             s+=1
         return res
+        """
+
+        # Solution - 3 -> TC= O(n), SC= O(1) -> DP Approach -> At some point to sell, find the min left in array which is a buy
+        # therefore, find max of (sell - min left which is a buy)
+        n = len(prices)
+        maxProfit = 0
+        minBuy = prices[0]
+        for sell in prices:
+            maxProfit = max(maxProfit, sell - minBuy)
+            minBuy = min(minBuy, sell)
+        return maxProfit
 
 
         
