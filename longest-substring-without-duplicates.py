@@ -1,6 +1,8 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         n = len(s)
+        if n == 0:
+            return 0
         res = 1
         i,j = 0,1
         dic = dict()
