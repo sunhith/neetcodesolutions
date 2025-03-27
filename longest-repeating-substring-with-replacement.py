@@ -1,32 +1,26 @@
-class Solution {
-    public int characterReplacement(String s, int k) {
-    int[] freq = new int[26];
-    int left = 0;
-    int maxFreq = 0;
-    int maxWindow = 0;
+import heapq
+class Solution:
 
-    for (int right = 0; right < s.length(); right++) {
+    def characterReplacement(self, s: str, k: int) -> int:
+        _dict = dict()
+        i,j = 0, 0
+        max_freq = 0
+        max_len = 0
 
-      // Update the frequency of the current character
-      freq[s.charAt(right) - 'A']++;
+        while j < len(s):
+            _dict[s[j]] = 1 + _dict.get(s[j], 0)
+            if (j-i+1) - max(_dict.values()) > k:
+                _dict[s[i]] = _dict.get(s[j], 0) - 1
+                i+=1
+            max_len = max(max_len, j-i+1)
+            j+=1
+        return max_len
 
-      // Update the max frequency
-      maxFreq = Math.max(maxFreq, freq[s.charAt(right) - 'A']);
 
-      int windowLength = right - left + 1;
 
-      // If the windowLength - max frequency > k,
-      // then we need to shrink the window
-      if (windowLength - maxFreq > k) {
-        freq[s.charAt(left) - 'A']--;
-        left++;
-      }
 
-      windowLength = right - left + 1;
-      maxWindow = Math.max(maxWindow, windowLength);
-    }
 
-    return maxWindow;
+      
 
-    }
-}
+
+
