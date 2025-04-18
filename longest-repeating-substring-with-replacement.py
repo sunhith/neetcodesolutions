@@ -9,7 +9,7 @@ class Solution:
         while j < len(s):
             _dict[s[j]] = 1 + _dict.get(s[j], 0)
             if (j-i+1) - max(_dict.values()) > k:
-                _dict[s[i]] = _dict.get(s[i], 0) - 1
+                _dict[s[i]] = _dict.get(s[i]) - 1
                 i+=1
             max_len = max(max_len, j-i+1)
             j+=1
