@@ -22,7 +22,6 @@ class Solution:
                 val2 = stack.pop()
                 val1 = stack.pop()
                 stack.append(self.opp(val1, val2, tokens[i]))
-                print(stack)
         return stack[0]
 
         
