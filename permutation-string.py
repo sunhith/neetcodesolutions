@@ -19,8 +19,7 @@ class Solution:
                         freq[s2[l]] = freq[s2[l]]+1
                     l+=1
                 r+=1
-            print(l)
-            print(r)
+                
             if len(s1) == r-l:
                 return True
         return False
