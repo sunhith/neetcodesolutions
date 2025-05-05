@@ -14,9 +14,10 @@ class Solution:
                     freq[s2[l]] = freq[s2[l]]+1
                     l+=1
             else:
-                if s2[l] in freq:
-                    freq[s2[l]] = freq[s2[l]]+1
-                l+=1
+                while l<=r:
+                    if s2[l] in freq:
+                        freq[s2[l]] = freq[s2[l]]+1
+                    l+=1
                 r+=1
             print(l)
             print(r)
