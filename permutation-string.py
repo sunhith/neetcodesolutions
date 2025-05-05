@@ -15,7 +15,6 @@ class Solution:
                     l+=1
             else:
                 while l<r:
-                    # if s2[l] in freq:
                     freq[s2[l]] = freq[s2[l]]+1
                     l+=1
                 l+=1
