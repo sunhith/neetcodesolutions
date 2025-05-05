@@ -11,7 +11,7 @@ class Solution:
                     freq[s2[r]] = freq[s2[r]] - 1
                     r+=1
                 else:
-                    while l<r:
+                    while l<=r:
                         freq[s2[l]] = freq[s2[l]]+1
                         l+=1
             else:
